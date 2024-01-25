@@ -1,0 +1,22 @@
+.app-container {
+    margin: 0% 10%;
+
+    .stopwatch-container {
+        border: 2px solid red;
+        text-align: center;
+
+        h1 {
+            text-align: center;
+            color: green;
+            font-size:  100px;
+        }
+        button{
+            background-color: purple;
+            color: yellow;
+            padding: 15px 35px;
+            font-size: xx-large;
+            // display: block;
+        }
+        
+    }
+}
