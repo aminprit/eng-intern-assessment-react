@@ -1,32 +1,10 @@
-/* .app-container {
-  margin: 0% 10%;
-}
-.app-container .stopwatch-container {
-  border: 2px solid red;
-  text-align: center;
-}
-.app-container .stopwatch-container h1 {
-  text-align: center;
-  color: green;
-  font-size: 100px;
-}
-.app-container .stopwatch-container button {
-  background-color: purple;
-  color: yellow;
-  margin-left: 10%;
-  padding: 15px 35px;
-  font-size: xx-large;
-
-} */
 .app-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1a1a1a;
 }
-
-.stopwatch-container {
+.app-container .stopwatch-container {
   background-color: #282c35;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
@@ -35,15 +13,13 @@
   width: 600px;
   color: #fff;
 }
-
-.stopwatch-container h1 {
+.app-container .stopwatch-container .stopWatch-header {
   color: #ffcc00;
   font-size: 42px;
   margin-bottom: 20px;
 }
-
-.stopwatch-container button {
-  background-color: #4CAF50;
+.app-container .stopwatch-container .stopWatch-button {
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -53,23 +29,29 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-
-.stopwatch-container button:hover {
-  background-color: #45a049;
+.app-container .stopwatch-container .stopWatch-button:hover {
+  background-color: red;
 }
-
-.stopwatch-container p {
+.app-container .stopwatch-container .displayTimer {
+  font-size: 32px;
+  margin: 15px 0;
+}
+.app-container .stopwatch-container .lap-Header {
   font-size: 24px;
   margin: 15px 0;
 }
-.laps-container {
-  background-color: red;
-  height: '500px';
-  overflow-y: 'scroll';
+.app-container .stopwatch-container .laps-container {
+  height: 500px;
+  overflow-y: scroll;
+}
+.app-container .stopwatch-container .laps-list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  position: relative;
+  font-size: 18px;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.laps-list {
-  margin-top: 10px;
-  position:relative;
-}
 /*# sourceMappingURL=App.css.map */

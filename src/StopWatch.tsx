@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import StopWatchButton from "./StopWatchButton";
+import FormatTime from "./FormatTime";
 
 export default function StopWatch() {
     const [timeElapsed, setTimeElapsed] = useState(0); // in milli-seconds
@@ -20,20 +21,26 @@ export default function StopWatch() {
     }, [on]);
 
     return (
-        <div className='stopwatch-container'>
-            <h1> Stop Watch</h1>
+        <div className="stopwatch-container">
+            <h1 className="stopWatch-header"> Stop Watch</h1>
+
+            <FormatTime className="displayTimer" timeElapsed={timeElapsed} />
+
             <StopWatchButton
+                className="stopWatch-button"
                 variant={"start"}
                 setOn={setOn}
                 setPrevStartTime={setPrevStartTime}
             />
             <StopWatchButton
+                className="stopWatch-button"
                 variant={"pause"}
                 timeElapsed={timeElapsed}
                 setOn={setOn}
                 setPrevTimeElapsed={setPrevTimeElapsed}
-                />
+            />
             <StopWatchButton
+                className="stopWatch-button"
                 variant={"reset"}
                 setOn={setOn}
                 setLaps={setLaps}
@@ -42,21 +49,25 @@ export default function StopWatch() {
                 setPrevStartTime={setPrevStartTime}
             />
             <StopWatchButton
+                className="stopWatch-button"
                 variant={"lap"}
                 timeElapsed={timeElapsed}
                 setLaps={setLaps}
             />
-            <p>timeElapsed: {timeElapsed}</p>
-            <p>laps:</p>
-            <div className='laps-container'style= {{height: '500px', overflowY: 'scroll'}}>
-            {laps.map((lap, i) => (
-                <p key={i}>
-                    {i + 1}: {lap}
-                </p>
-            ))}
+            {/* <p className="displayTimer">timeElapsed: {timeElapsed}</p> */}
+            {laps.length > 0 && <p className="lap-Header">Laps:</p>}
+            <div className="laps-container">
+                {laps.map((lap, i) => (
+                    <div className="laps-list" key={i}>
+                        <p>Lap {laps.length - i}</p>
+                        <FormatTime
+                            className=".laps-list"
+                            timeElapsed={i < laps.length - 1 ? lap - laps[i + 1] : lap}
+                            
+                        />
+                    </div>
+                ))}
             </div>
-            
-            
         </div>
     );
 }

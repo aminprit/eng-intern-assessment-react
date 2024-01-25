@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 interface CommonProps {
     children?: React.ReactNode;
+    className: string;
     // ...other props that always exist
 }
 
@@ -71,19 +72,20 @@ const StopWatchButton = (props: Props) => {
 
     const handleLaps = () => {
         props.setLaps((previousLap) => {
-            return [...previousLap, props.timeElapsed];
+            const newLaps = [props.timeElapsed, ...previousLap];
+            return newLaps
         });
     };
 
     switch (props.variant) {
         case "start":
-            return <button onClick={handleStart}>Start</button>;
+            return <button className={props.className} onClick={handleStart}>Start</button>;
         case "pause":
-            return <button onClick={handlePause}>Pause</button>;
+            return <button className={props.className} onClick={handlePause}>Pause</button>;
         case "reset":
-            return <button onClick={handleReset}>Reset</button>;
+            return <button className={props.className} onClick={handleReset}>Reset</button>;
         case "lap":
-            return <button onClick={handleLaps}>Lap</button>;
+            return <button className={props.className} onClick={handleLaps}>Lap</button>;
     }
 };
 
